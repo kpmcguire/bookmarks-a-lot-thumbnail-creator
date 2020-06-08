@@ -20,6 +20,10 @@ var corsOptions = {
   }
 }
 
+app.get('/', (req, res)=>{
+  res.send(`${process.env.LIVE_URL}`);
+})
+
 app.get('/image', cors(corsOptions), (req, res, next)=>{
   let url = req.query.url
   new screenshot(url)

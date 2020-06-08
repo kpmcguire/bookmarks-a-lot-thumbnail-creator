@@ -7,14 +7,16 @@ const dotenv = require('dotenv').config()
 var whitelist = [
   `http://localhost:${process.env.INCOMING_PORT}`,
   `https://localhost:${process.env.INCOMING_PORT}`,
-  `https://${process.env.LIVE_URL}/`,
+  `https://${process.env.LIVE_URL}/`
 ];
 
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
+      console.log(origin)
       callback(null, true)
     } else {
+      console.log(origin)
       callback(new Error('Not allowed by CORS'))
     }
   }

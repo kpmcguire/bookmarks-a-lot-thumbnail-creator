@@ -28,8 +28,8 @@ app.get('/image', cors(corsOptions), (req, res, next)=>{
   let url = req.query.url
   new screenshot(url)
     .sslProtocol('any')
-    .width(1600)
-    .height(1200)
+    .width(800)
+    .height(600)
     .clip()
     .capture()
     .then(img =>{
